@@ -6,4 +6,6 @@
   "scripts": {
     "start": "node dist/main.js",
     "build": "tsc",
-    "d
+    "dev": "ts-node-dev --respawn --poll ./src/main.ts",
+    "electron": "electron .",
+    "build-electron-linux": "electron-packager
