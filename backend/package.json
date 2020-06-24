@@ -8,4 +8,4 @@
     "build": "tsc",
     "dev": "ts-node-dev --respawn --poll ./src/main.ts",
     "electron": "electron .",
-    "build-electron-linux": "electron-packager
+    "build-electron-linux": "electron-packager . --out=../build --overwrite --extra-resource=../frontend-dist --platform=linux --icon=icons/icon.png --version-string.CompanyName='Imran Remtu
