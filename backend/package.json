@@ -10,4 +10,9 @@
     "electron": "electron .",
     "build-electron-linux": "electron-packager . --out=../build --overwrite --extra-resource=../frontend-dist --platform=linux --icon=icons/icon.png --version-string.CompanyName='Imran Remtulla'--version-string.ProductName=TinyStock",
     "build-electron-windows": "electron-packager . --out=../build --overwrite --extra-resource=../frontend-dist --platform=win32 --icon=icons/icon.ico --version-string.CompanyName='Imran Remtulla'--version-string.ProductName=TinyStock",
-    "build-electron-mac": "electron-packager . --out=../build --overwrite --extra-resource=../frontend-dist --platform=darwin --icon=icons/icon.png --version-string.CompanyName='Imran Remtulla'--version-string.ProductN
+    "build-electron-mac": "electron-packager . --out=../build --overwrite --extra-resource=../frontend-dist --platform=darwin --icon=icons/icon.png --version-string.CompanyName='Imran Remtulla'--version-string.ProductName=TinyStock"
+  },
+  "author": "Imran Remtulla",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
