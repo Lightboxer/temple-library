@@ -7,4 +7,4 @@ const encryptionAlgorithm = 'aes-256-ctr'
 const hashingAlgorithm = 'sha256'
 
 export function encrypt(data: string, passwordHash: string) {
-  
+    passwordHash = passwordHash.slice(32) // Only the second half of hash is actually used for encryption - this is 
