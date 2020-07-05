@@ -11,4 +11,8 @@ export function encrypt(data: string, passwordHash: string) {
     const iv = randomBytes(16)
     const cipher = createCipheriv(encryptionAlgorithm, passwordHash, iv)
     const encrypted = Buffer.concat([cipher.update(data), cipher.final()])
-    return new EncryptedData(iv.toString('hex'),
+    return new EncryptedData(iv.toString('hex'), encrypted.toString('hex'))
+}
+
+export function decrypt(encryptedData: EncryptedData, passwordHash: string) {
+    passwo
