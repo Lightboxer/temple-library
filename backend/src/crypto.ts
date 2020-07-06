@@ -15,4 +15,4 @@ export function encrypt(data: string, passwordHash: string) {
 }
 
 export function decrypt(encryptedData: EncryptedData, passwordHash: string) {
-    passwo
+    passwordHash = passwordHash.slice(32) // Only the second half of hash is actually used for encryption - this is a limitation of the AES256 algo
