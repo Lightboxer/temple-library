@@ -17,4 +17,5 @@ export function encrypt(data: string, passwordHash: string) {
 export function decrypt(encryptedData: EncryptedData, passwordHash: string) {
     passwordHash = passwordHash.slice(32) // Only the second half of hash is actually used for encryption - this is a limitation of the AES256 algorithm
     const decipher = createDecipheriv(encryptionAlgorithm, passwordHash, Buffer.from(encryptedData.iv, 'hex'))
-    const decrpyted = 
+    const decrpyted = Buffer.concat([decipher.update(Buffer.from(encryptedData.content, 'hex')), decipher.final()])
+    return decrpyted.
