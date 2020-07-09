@@ -23,4 +23,7 @@ export function decrypt(encryptedData: EncryptedData, passwordHash: string) {
 
 export function hashPassword(password: string) {
     let hash = createHmac(hashingAlgorithm, '')
-    hash.update(pa
+    hash.update(password)
+    let value = hash.digest('hex')
+    return value
+}
