@@ -5,4 +5,5 @@ import { configure, addItem, findItem, addTransaction, editItem, deleteItem, cha
 import { AppError, AppErrorCodes, instanceOfItem, instanceOfAdjustment, instanceOfItems, instanceOfTransactions, TransactionTypes } from 'tinystock-models'
 
 export async function checkStandardArgs(obj: any) {
-  if (
+  if (obj.dataDir == undefined || obj.password == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
+ 
