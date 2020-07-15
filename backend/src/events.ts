@@ -7,4 +7,8 @@ import { AppError, AppErrorCodes, instanceOfItem, instanceOfAdjustment, instance
 export async function checkStandardArgs(obj: any) {
   if (obj.dataDir == undefined || obj.password == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
   if (typeof obj.dataDir != 'string' || typeof obj.password != 'string') throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
-  if 
+  if (obj.password.length == 0) throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
+}
+
+export async function configureEvent(body: any) {
+  ch
