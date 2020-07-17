@@ -15,4 +15,9 @@ export async function configureEvent(body: any) {
   return configure(body.dataDir, body.password)
 }
 
-export async function itemsEvent
+export async function itemsEvent(body: any) {
+  checkStandardArgs(body)
+  return items(body.dataDir, body.password)
+}
+
+export async function transactionsEvent(body
