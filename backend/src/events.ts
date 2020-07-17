@@ -11,4 +11,8 @@ export async function checkStandardArgs(obj: any) {
 }
 
 export async function configureEvent(body: any) {
-  ch
+  checkStandardArgs(body)
+  return configure(body.dataDir, body.password)
+}
+
+export async function itemsEvent
