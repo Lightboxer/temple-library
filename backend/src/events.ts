@@ -25,4 +25,6 @@ export async function transactionsEvent(body: any) {
   return transactions(body.dataDir, body.password)
 }
 
-export asy
+export async function addItemEvent(body: any) {
+  checkStandardArgs(body)
+  if (body.item == undefined) throw new AppError(AppEr
