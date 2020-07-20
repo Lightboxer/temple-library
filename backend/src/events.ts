@@ -20,4 +20,9 @@ export async function itemsEvent(body: any) {
   return items(body.dataDir, body.password)
 }
 
-export async function transactionsEvent(body
+export async function transactionsEvent(body: any) {
+  checkStandardArgs(body)
+  return transactions(body.dataDir, body.password)
+}
+
+export asy
