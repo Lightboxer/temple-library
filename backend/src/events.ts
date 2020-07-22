@@ -27,4 +27,6 @@ export async function transactionsEvent(body: any) {
 
 export async function addItemEvent(body: any) {
   checkStandardArgs(body)
-  if (body.item == undefined) throw new AppError(AppEr
+  if (body.item == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
+  if (!instanceOfItem(body.item)) throw new AppError(AppErrorCodes.INVALID_ITEM)
+  return addIte
