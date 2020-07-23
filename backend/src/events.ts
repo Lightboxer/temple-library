@@ -34,4 +34,5 @@ export async function addItemEvent(body: any) {
 
 export async function findItemEvent(body: any) {
   checkStandardArgs(body)
- 
+  if (body.code == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
+  if (typeof body.code != 'st
