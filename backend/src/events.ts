@@ -29,4 +29,9 @@ export async function addItemEvent(body: any) {
   checkStandardArgs(body)
   if (body.item == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
   if (!instanceOfItem(body.item)) throw new AppError(AppErrorCodes.INVALID_ITEM)
-  return addIte
+  return addItem(body.dataDir, body.item, body.password)
+}
+
+export async function findItemEvent(body: any) {
+  checkStandardArgs(body)
+ 
