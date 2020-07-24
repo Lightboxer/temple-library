@@ -36,4 +36,7 @@ export async function findItemEvent(body: any) {
   checkStandardArgs(body)
   if (body.code == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
   if (typeof body.code != 'string') throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
-  return findItem(body.dataDir, body.code, typeof body.s
+  return findItem(body.dataDir, body.code, typeof body.setQuantity == 'number' ? body.setQuantity : null, body.password)
+}
+
+export async function editItemEvent(body: an
