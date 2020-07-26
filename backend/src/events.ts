@@ -39,4 +39,7 @@ export async function findItemEvent(body: any) {
   return findItem(body.dataDir, body.code, typeof body.setQuantity == 'number' ? body.setQuantity : null, body.password)
 }
 
-export async function editItemEvent(body: an
+export async function editItemEvent(body: any) {
+  checkStandardArgs(body)
+  if (body.item == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
+  if (!insta
