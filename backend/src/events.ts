@@ -46,4 +46,7 @@ export async function editItemEvent(body: any) {
   return editItem(body.dataDir, body.item, body.password)
 }
 
-export a
+export async function deleteItemEvent(body: any) {
+  checkStandardArgs(body)
+  if (body.code == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
+  i
