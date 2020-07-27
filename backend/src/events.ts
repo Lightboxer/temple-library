@@ -42,4 +42,8 @@ export async function findItemEvent(body: any) {
 export async function editItemEvent(body: any) {
   checkStandardArgs(body)
   if (body.item == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
-  if (!insta
+  if (!instanceOfItem(body.item)) throw new AppError(AppErrorCodes.INVALID_ITEM)
+  return editItem(body.dataDir, body.item, body.password)
+}
+
+export a
