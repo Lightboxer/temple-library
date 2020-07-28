@@ -49,4 +49,5 @@ export async function editItemEvent(body: any) {
 export async function deleteItemEvent(body: any) {
   checkStandardArgs(body)
   if (body.code == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
-  i
+  if (typeof body.code != 'string') throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
+  return deleteItem(body.dataDir, body.c
