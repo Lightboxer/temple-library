@@ -50,4 +50,7 @@ export async function deleteItemEvent(body: any) {
   checkStandardArgs(body)
   if (body.code == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
   if (typeof body.code != 'string') throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
-  return deleteItem(body.dataDir, body.c
+  return deleteItem(body.dataDir, body.code, typeof body.setQuantity == 'number' ? body.setQuantity : null, body.password)
+}
+
+export async function makeTransactionEvent(bod
