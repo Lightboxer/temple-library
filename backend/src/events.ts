@@ -53,4 +53,6 @@ export async function deleteItemEvent(body: any) {
   return deleteItem(body.dataDir, body.code, typeof body.setQuantity == 'number' ? body.setQuantity : null, body.password)
 }
 
-export async function makeTransactionEvent(bod
+export async function makeTransactionEvent(body: any) {
+  checkStandardArgs(body)
+  if (body.transactionItems == undefined || body.adjustments == undefined || body.type == undefin
