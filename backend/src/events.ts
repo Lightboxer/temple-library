@@ -56,4 +56,6 @@ export async function deleteItemEvent(body: any) {
 export async function makeTransactionEvent(body: any) {
   checkStandardArgs(body)
   if (body.transactionItems == undefined || body.adjustments == undefined || body.type == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
-  if (!Array.isArray(body.transactionItems)) throw new AppError(AppErrorCodes.I
+  if (!Array.isArray(body.transactionItems)) throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
+  if (!Array.isArray(body.adjustments)) throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
+  if (!(body.type in Transac
