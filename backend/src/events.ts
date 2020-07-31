@@ -58,4 +58,6 @@ export async function makeTransactionEvent(body: any) {
   if (body.transactionItems == undefined || body.adjustments == undefined || body.type == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
   if (!Array.isArray(body.transactionItems)) throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
   if (!Array.isArray(body.adjustments)) throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
-  if (!(body.type in Transac
+  if (!(body.type in TransactionTypes)) throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
+  for (let i = 0; i < body.transactionItems.length; i++)
+    if (!instanceOfItem
