@@ -61,4 +61,6 @@ export async function makeTransactionEvent(body: any) {
   if (!(body.type in TransactionTypes)) throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
   for (let i = 0; i < body.transactionItems.length; i++)
     if (!instanceOfItem(body.transactionItems[i])) throw new AppError(AppErrorCodes.INVALID_ITEM)
-  for (let i = 0; i < body.adjustments.length; i
+  for (let i = 0; i < body.adjustments.length; i++)
+    if (!instanceOfAdjustment(body.adjustments[i])) throw new AppError(AppErrorCodes.INVALID_ADJUSTMENT)
+  return addTransaction(body.
