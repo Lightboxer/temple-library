@@ -66,4 +66,6 @@ export async function makeTransactionEvent(body: any) {
   return addTransaction(body.dataDir, body.transactionItems, body.adjustments, body.type, body.password)
 }
 
-export async function changePasswordEv
+export async function changePasswordEvent(body: any) {
+  checkStandardArgs(body)
+  if (body.newPassword == undefined) throw new AppError(AppErrorCodes.M
