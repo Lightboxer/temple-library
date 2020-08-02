@@ -68,4 +68,6 @@ export async function makeTransactionEvent(body: any) {
 
 export async function changePasswordEvent(body: any) {
   checkStandardArgs(body)
-  if (body.newPassword == undefined) throw new AppError(AppErrorCodes.M
+  if (body.newPassword == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
+  if (typeof body.newPassword != 'string') throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
+  changePassword(body.dataDir
