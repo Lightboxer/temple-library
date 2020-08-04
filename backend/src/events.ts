@@ -70,4 +70,9 @@ export async function changePasswordEvent(body: any) {
   checkStandardArgs(body)
   if (body.newPassword == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
   if (typeof body.newPassword != 'string') throw new AppError(AppErrorCodes.INVALID_ARGUMENT)
-  changePassword(body.dataDir
+  changePassword(body.dataDir, body.password, body.newPassword)
+}
+
+export async function importDataEvent(body: any) {
+  checkStandardArgs(body)
+  if (body.items == undefine
