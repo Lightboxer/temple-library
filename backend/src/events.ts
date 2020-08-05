@@ -75,4 +75,5 @@ export async function changePasswordEvent(body: any) {
 
 export async function importDataEvent(body: any) {
   checkStandardArgs(body)
-  if (body.items == undefine
+  if (body.items == undefined || body.transactions == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
+  if (!instanceOfItems(body.items))
