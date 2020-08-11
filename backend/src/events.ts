@@ -77,4 +77,6 @@ export async function importDataEvent(body: any) {
   checkStandardArgs(body)
   if (body.items == undefined || body.transactions == undefined) throw new AppError(AppErrorCodes.MISSING_ARGUMENT)
   if (!instanceOfItems(body.items)) throw new AppError(AppErrorCodes.CORRUPT_ITEM_IN_JSON)
-  if (!instanceOfTransactions(body.transactions)) throw new AppError(AppErrorCod
+  if (!instanceOfTransactions(body.transactions)) throw new AppError(AppErrorCodes.CORRUPT_TRANSACTION_IN_JSON)
+  importData(body.dataDir, body.password, body.items, body.transactions)
+}
