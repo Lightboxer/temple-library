@@ -2,4 +2,7 @@
 // References functions from io.ts
 
 import { Adjustment, AppError, AppErrorCodes, Item, Transaction, TransactionTypes } from 'tinystock-models'
-import { readItems, readTransactions, writeItems, writeTransactions, createOrCh
+import { readItems, readTransactions, writeItems, writeTransactions, createOrCheckDataDirectory, changeEncryptionPassword, validatePassword } from './io'
+
+export function configure(dataDir: string, password: string) {
+    r
