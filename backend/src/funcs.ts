@@ -5,4 +5,8 @@ import { Adjustment, AppError, AppErrorCodes, Item, Transaction, TransactionType
 import { readItems, readTransactions, writeItems, writeTransactions, createOrCheckDataDirectory, changeEncryptionPassword, validatePassword } from './io'
 
 export function configure(dataDir: string, password: string) {
-    r
+    return createOrCheckDataDirectory(dataDir, password)
+}
+
+export function items(dataDir: string, password: string) {
+    return read
