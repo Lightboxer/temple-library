@@ -13,4 +13,8 @@ export function items(dataDir: string, password: string) {
 }
 
 export function transactions(dataDir: string, password: string) {
-    return readTransactions(dataDir,
+    return readTransactions(dataDir, password)
+}
+
+export function findItem(dataDir: string, code: string, setQuantity: number | null, password: string) {
+    let items 
