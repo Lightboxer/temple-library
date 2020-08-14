@@ -9,4 +9,8 @@ export function configure(dataDir: string, password: string) {
 }
 
 export function items(dataDir: string, password: string) {
-    return read
+    return readItems(dataDir, password)
+}
+
+export function transactions(dataDir: string, password: string) {
+    return readTransactions(dataDir,
