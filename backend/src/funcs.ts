@@ -17,4 +17,6 @@ export function transactions(dataDir: string, password: string) {
 }
 
 export function findItem(dataDir: string, code: string, setQuantity: number | null, password: string) {
-    let items 
+    let items = readItems(dataDir, password)
+    let item = items.find(item => (item.code == code.trim() && item.setQuantity == setQuantity))
+    if (!i
