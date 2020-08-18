@@ -23,4 +23,5 @@ export function findItem(dataDir: string, code: string, setQuantity: number | nu
     return item
 }
 
-function findItemIndex(items:
+function findItemIndex(items: Item[], code: string, setQuantity: number | null) {
+    let itemIndex = items.findIndex(item => (item.code == code.trim() && item.setQuantity == s
