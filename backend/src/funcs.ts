@@ -19,4 +19,8 @@ export function transactions(dataDir: string, password: string) {
 export function findItem(dataDir: string, code: string, setQuantity: number | null, password: string) {
     let items = readItems(dataDir, password)
     let item = items.find(item => (item.code == code.trim() && item.setQuantity == setQuantity))
-    if (!i
+    if (!item) throw new AppError(AppErrorCodes.ITEM_NOT_FOUND, { code, setQuantity })
+    return item
+}
+
+function findItemIndex(items:
