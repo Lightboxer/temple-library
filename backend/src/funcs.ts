@@ -29,4 +29,6 @@ function findItemIndex(items: Item[], code: string, setQuantity: number | null) 
     return itemIndex
 }
 
-e
+export function addItem(dataDir: string, newItem: Item, password: string) {
+    newItem.quantity = 0
+    let items = readI
