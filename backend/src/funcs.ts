@@ -31,4 +31,7 @@ function findItemIndex(items: Item[], code: string, setQuantity: number | null) 
 
 export function addItem(dataDir: string, newItem: Item, password: string) {
     newItem.quantity = 0
-    let items = readI
+    let items = readItems(dataDir, password)
+    try {
+        findItemIndex(items, newItem.code, newItem.setQuantity)
+        throw new AppError(AppErrorCodes.ITEM_
