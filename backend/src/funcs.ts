@@ -37,4 +37,10 @@ export function addItem(dataDir: string, newItem: Item, password: string) {
         throw new AppError(AppErrorCodes.ITEM_EXISTS)
     } catch (err) {
         if (!(err instanceof AppError)) throw err
-        if (err.code != AppErrorCodes.ITEM_NOT_FOUND) 
+        if (err.code != AppErrorCodes.ITEM_NOT_FOUND) throw err
+    }
+    items.push(newItem)
+    writeItems(dataDir, items, password)
+}
+
+export function editItem(dataDir: string, item: Item, password: s
