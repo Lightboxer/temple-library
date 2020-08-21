@@ -34,4 +34,7 @@ export function addItem(dataDir: string, newItem: Item, password: string) {
     let items = readItems(dataDir, password)
     try {
         findItemIndex(items, newItem.code, newItem.setQuantity)
-        throw new AppError(AppErrorCodes.ITEM_
+        throw new AppError(AppErrorCodes.ITEM_EXISTS)
+    } catch (err) {
+        if (!(err instanceof AppError)) throw err
+        if (err.code != AppErrorCodes.ITEM_NOT_FOUND) 
