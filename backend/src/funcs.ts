@@ -45,4 +45,7 @@ export function addItem(dataDir: string, newItem: Item, password: string) {
 
 export function editItem(dataDir: string, item: Item, password: string) {
     let items = readItems(dataDir, password)
-    let itemIndex = findItemIndex(items, item.code, item.setQuantity
+    let itemIndex = findItemIndex(items, item.code, item.setQuantity)
+    item.quantity = items[itemIndex].quantity
+    items[itemIndex] = item
+    writeItems(dataDir, items
