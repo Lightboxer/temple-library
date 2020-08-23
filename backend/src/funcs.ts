@@ -48,4 +48,7 @@ export function editItem(dataDir: string, item: Item, password: string) {
     let itemIndex = findItemIndex(items, item.code, item.setQuantity)
     item.quantity = items[itemIndex].quantity
     items[itemIndex] = item
-    writeItems(dataDir, items
+    writeItems(dataDir, items, password)
+}
+
+export function deleteItem(dataDir: string, code: string, setQuantity: number | null, password: string) {
