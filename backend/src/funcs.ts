@@ -52,3 +52,6 @@ export function editItem(dataDir: string, item: Item, password: string) {
 }
 
 export function deleteItem(dataDir: string, code: string, setQuantity: number | null, password: string) {
+    let items = readItems(dataDir, password)
+    let itemIndex = findItemIndex(items, code, setQuantity)
+    items.sp
