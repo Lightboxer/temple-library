@@ -58,4 +58,5 @@ export function deleteItem(dataDir: string, code: string, setQuantity: number | 
     writeItems(dataDir, items, password)
 }
 
-export function addTransaction(dataDir: string, transactionItems: Ite
+export function addTransaction(dataDir: string, transactionItems: Item[], adjustments: Adjustment[], type: TransactionTypes, password: string) {
+    let items = readItems(dataDir, passwo
