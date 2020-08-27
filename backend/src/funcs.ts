@@ -59,4 +59,7 @@ export function deleteItem(dataDir: string, code: string, setQuantity: number | 
 }
 
 export function addTransaction(dataDir: string, transactionItems: Item[], adjustments: Adjustment[], type: TransactionTypes, password: string) {
-    let items = readItems(dataDir, passwo
+    let items = readItems(dataDir, password)
+    let transactions = readTransactions(dataDir, password)
+    transactionItems.forEach(transactionItem => {
+    
