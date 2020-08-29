@@ -62,4 +62,5 @@ export function addTransaction(dataDir: string, transactionItems: Item[], adjust
     let items = readItems(dataDir, password)
     let transactions = readTransactions(dataDir, password)
     transactionItems.forEach(transactionItem => {
-    
+        let itemIndex = findItemIndex(items, transactionItem.code, transactionItem.setQuantity)
+        if (t
