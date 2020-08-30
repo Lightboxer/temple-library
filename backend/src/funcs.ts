@@ -63,4 +63,5 @@ export function addTransaction(dataDir: string, transactionItems: Item[], adjust
     let transactions = readTransactions(dataDir, password)
     transactionItems.forEach(transactionItem => {
         let itemIndex = findItemIndex(items, transactionItem.code, transactionItem.setQuantity)
-        if (t
+        if (type == TransactionTypes.SALE) {
+            if (items[itemIndex].quantity < transactionItem.quantity) throw new AppError(AppEr
