@@ -65,4 +65,7 @@ export function addTransaction(dataDir: string, transactionItems: Item[], adjust
         let itemIndex = findItemIndex(items, transactionItem.code, transactionItem.setQuantity)
         if (type == TransactionTypes.SALE) {
             if (items[itemIndex].quantity < transactionItem.quantity) throw new AppError(AppErrorCodes.QUANTITY_TOO_LOW, { transactionItem: transactionItem, item: items[itemIndex] })
-            items[itemIndex].quantity -= transactionItem
+            items[itemIndex].quantity -= transactionItem.quantity
+        } else items[itemIndex].quantity += transactionItem.quantity
+    })
+    let transaction = new Tra
