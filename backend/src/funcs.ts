@@ -68,4 +68,6 @@ export function addTransaction(dataDir: string, transactionItems: Item[], adjust
             items[itemIndex].quantity -= transactionItem.quantity
         } else items[itemIndex].quantity += transactionItem.quantity
     })
-    let transaction = new Tra
+    let transaction = new Transaction(null, new Date(), transactionItems, adjustments, type)
+    transactions.push(transaction)
+    writeItems(dataDir, items, p
