@@ -75,4 +75,8 @@ export function addTransaction(dataDir: string, transactionItems: Item[], adjust
     return transaction
 }
 
-export function changePassword(dataDir: string, pass
+export function changePassword(dataDir: string, password: string, newPassword: string) {
+    changeEncryptionPassword(dataDir, password, newPassword)
+}
+
+export function importData(dataDir
