@@ -70,4 +70,9 @@ export function addTransaction(dataDir: string, transactionItems: Item[], adjust
     })
     let transaction = new Transaction(null, new Date(), transactionItems, adjustments, type)
     transactions.push(transaction)
-    writeItems(dataDir, items, p
+    writeItems(dataDir, items, password)
+    writeTransactions(dataDir, transactions, password)
+    return transaction
+}
+
+export function changePassword(dataDir: string, pass
