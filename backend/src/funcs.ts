@@ -79,4 +79,5 @@ export function changePassword(dataDir: string, password: string, newPassword: s
     changeEncryptionPassword(dataDir, password, newPassword)
 }
 
-export function importData(dataDir
+export function importData(dataDir: string, password: string, items: Item[], transactions: Transaction[]) {
+    validatePassword(dataDir, password)
