@@ -81,3 +81,6 @@ export function changePassword(dataDir: string, password: string, newPassword: s
 
 export function importData(dataDir: string, password: string, items: Item[], transactions: Transaction[]) {
     validatePassword(dataDir, password)
+    writeItems(dataDir, items, password)
+    writeTransactions(dataDir, transactions, password)
+}
