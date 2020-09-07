@@ -40,3 +40,142 @@ const createWindow = () => {
     win = null
   })
 }
+
+app?.on('ready', () => {
+  createWindow()
+})
+app?.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') { // It is common for MacOS apps to keep running
+    app.quit()
+  }
+})
+app?.on('activate', () => {
+  if (win === null) {
+    createWindow()
+  }
+})
+
+// Prepping Express
+const expressApp: express.Application = express()
+expressApp.use(express.json())
+expressApp.use(express.static(path.join(__dirname, '/../../frontend-dist')))
+const PORT = 7259
+
+// The client may be a Web browser or an Electron App
+// As such, Electron's built in IPC is used to respond to the client
+// If there is no Electron client, an Express server is launched to respond to the same requests from a Web browser
+// As such, each event function from events.ts is referenced twice below, once for the Electron IPC response, and a second time for the Express Web response
+
+// Event: configure
+ipcMain?.on('configure', async (event, body) => {
+  try {
+    win?.webContents.send('configureResponse', await configureEvent(body))
+  } catch (err) {
+    win?.webContents.send('configureError', err)
+  }
+})
+expressApp.post('/api/configure', async (req, res) => {
+  try {
+    res.send(await configureEvent(req.body))
+  } catch (err) {
+    if (instanceOfAppError(err)) res.status(400).send(err)
+    else res.status(500).send(err)
+  }
+})
+
+// Event: items
+ipcMain?.on('items', async (event, body) => {
+  try {
+    win?.webContents.send('itemsResponse', await itemsEvent(body))
+  } catch (err) {
+    win?.webContents.send('itemsError', err)
+  }
+})
+expressApp.post('/api/items', async (req, res) => {
+  try {
+    res.send(await itemsEvent(req.body))
+  } catch (err) {
+    if (instanceOfAppError(err)) res.status(400).send(err)
+    else res.status(500).send(err)
+  }
+})
+
+// Event: transactions
+ipcMain?.on('transactions', async (event, body) => {
+  try {
+    win?.webContents.send('transactionsResponse', await transactionsEvent(body))
+  } catch (err) {
+    win?.webContents.send('transactionsError', err)
+  }
+})
+expressApp.post('/api/transactions', async (req, res) => {
+  try {
+    res.send(await transactionsEvent(req.body))
+  } catch (err) {
+    if (instanceOfAppError(err)) res.status(400).send(err)
+    else res.status(500).send(err)
+  }
+})
+
+// Event: addItem
+ipcMain?.on('addItem', async (event, body) => {
+  try {
+    win?.webContents.send('addItemResponse', await addItemEvent(body))
+  } catch (err) {
+    win?.webContents.send('addItemError', err)
+  }
+})
+expressApp.post('/api/addItem', async (req, res) => {
+  try {
+    res.send(await addItemEvent(req.body))
+  } catch (err) {
+    if (instanceOfAppError(err)) res.status(400).send(err)
+    else res.status(500).send(err)
+  }
+})
+
+// Event: findItem
+ipcMain?.on('findItem', async (event, body) => {
+  try {
+    win?.webContents.send('findItemResponse', await findItemEvent(body))
+  } catch (err) {
+    win?.webContents.send('findItemError', err)
+  }
+})
+expressApp.post('/api/findItem', async (req, res) => {
+  try {
+    res.send(await findItemEvent(req.body))
+  } catch (err) {
+    if (instanceOfAppError(err)) res.status(400).send(err)
+    else res.status(500).send(err)
+  }
+})
+
+// Event: editItem
+ipcMain?.on('editItem', async (event, body) => {
+  try {
+    win?.webContents.send('editItemResponse', await editItemEvent(body))
+  } catch (err) {
+    win?.webContents.send('editItemError', err)
+  }
+})
+expressApp.post('/api/editItem', async (req, res) => {
+  try {
+    res.send(await editItemEvent(req.body))
+  } catch (err) {
+    if (instanceOfAppError(err)) res.status(400).send(err)
+    else res.status(500).send(err)
+  }
+})
+
+// Event: deleteItem
+ipcMain?.on('deleteItem', async (event, body) => {
+  try {
+    win?.webContents.send('deleteItemResponse', await deleteItemEvent(body))
+  } catch (err) {
+    win?.webContents.send('deleteItemError', err)
+  }
+})
+expressApp.post('/api/deleteItem', async (req, res) => {
+  try {
+    res.send(await deleteItemEvent(req.body))
