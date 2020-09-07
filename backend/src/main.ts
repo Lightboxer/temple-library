@@ -179,3 +179,69 @@ ipcMain?.on('deleteItem', async (event, body) => {
 expressApp.post('/api/deleteItem', async (req, res) => {
   try {
     res.send(await deleteItemEvent(req.body))
+  } catch (err) {
+    if (instanceOfAppError(err)) res.status(400).send(err)
+    else res.status(500).send(err)
+  }
+})
+
+// Event: makeTransaction
+ipcMain?.on('makeTransaction', async (event, body) => {
+  try {
+    win?.webContents.send('makeTransactionResponse', await makeTransactionEvent(body))
+  } catch (err) {
+    win?.webContents.send('makeTransactionError', err)
+  }
+})
+expressApp.post('/api/makeTransaction', async (req, res) => {
+  try {
+    res.send(await makeTransactionEvent(req.body))
+  } catch (err) {
+    if (instanceOfAppError(err)) res.status(400).send(err)
+    else res.status(500).send(err)
+  }
+})
+
+// Event: changePassword
+ipcMain?.on('changePassword', async (event, body) => {
+  try {
+    win?.webContents.send('changePasswordResponse', await changePasswordEvent(body))
+  } catch (err) {
+    win?.webContents.send('changePasswordError', err)
+  }
+})
+expressApp.post('/api/changePassword', async (req, res) => {
+  try {
+    res.send(await changePasswordEvent(req.body))
+  } catch (err) {
+    if (instanceOfAppError(err)) res.status(400).send(err)
+    else res.status(500).send(err)
+  }
+})
+
+// Event: importData
+ipcMain?.on('importData', async (event, body) => {
+  try {
+    win?.webContents.send('importDataResponse', await importDataEvent(body))
+  } catch (err) {
+    win?.webContents.send('importDataError', err)
+  }
+})
+expressApp.post('/api/importData', async (req, res) => {
+  try {
+    res.send(await importDataEvent(req.body))
+  } catch (err) {
+    if (instanceOfAppError(err)) res.status(400).send(err)
+    else res.status(500).send(err)
+  }
+})
+
+expressApp.get('*', (req, res) => { // For any other Web request, serve up the client
+  res.sendFile(path.join(__dirname, '/../../frontend-dist/index.html'))
+})
+
+if (!app) { // Only start the server if Electron is not running
+  expressApp.listen(process.env.PORT || PORT, () => {
+    console.log(`Express server launched (port ${process.env.PORT || PORT})`)
+  })
+} else console.log(`Electron app launched`)
