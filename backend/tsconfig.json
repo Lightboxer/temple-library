@@ -1,4 +1,8 @@
 {
     "compilerOptions": {
       "target": "es6",
-      "modul
+      "module": "commonjs",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFi
