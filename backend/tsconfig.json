@@ -5,4 +5,10 @@
       "strict": true,
       "esModuleInterop": true,
       "skipLibCheck": true,
-      "forceConsistentCasingInFi
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "dist",
+      "experimentalDecorators": true
+    },
+    "include": [
+      "src/**/*.ts"
+    ],
