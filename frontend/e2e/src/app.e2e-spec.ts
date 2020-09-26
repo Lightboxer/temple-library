@@ -4,4 +4,9 @@ import { browser, logging } from 'protractor';
 describe('workspace-project App', () => {
   let page: AppPage;
 
-  befor
+  beforeEach(() => {
+    page = new AppPage();
+  });
+
+  it('should display welcome message', () => {
+    page.navigateTo();
