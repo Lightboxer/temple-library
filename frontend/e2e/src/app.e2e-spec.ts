@@ -14,4 +14,6 @@ describe('workspace-project App', () => {
   });
 
   afterEach(async () => {
-    // Assert that
+    // Assert that there are no errors emitted from the browser
+    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
+    expect(logs)
