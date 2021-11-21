@@ -9,4 +9,6 @@
         <span class="bigText">Add Item</span>
     </div>
     <mat-divider></mat-divider>
-    <form [formGroup]="addItemForm" fxLayout=
+    <form [formGroup]="addItemForm" fxLayout="column" fxLayoutGap="1em">
+        <mat-form-field>
+            <input matInput formControlName="code" placeholder="Item
