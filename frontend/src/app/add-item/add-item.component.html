@@ -5,4 +5,8 @@
         </button>
         <button *ngIf="!isModal" mat-icon-button (click)="back()">
             <mat-icon svgIcon="back"></mat-icon>
-        </
+        </button>
+        <span class="bigText">Add Item</span>
+    </div>
+    <mat-divider></mat-divider>
+    <form [formGroup]="addItemForm" fxLayout=
