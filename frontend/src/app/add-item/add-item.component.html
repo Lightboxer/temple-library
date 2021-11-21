@@ -11,4 +11,7 @@
     <mat-divider></mat-divider>
     <form [formGroup]="addItemForm" fxLayout="column" fxLayoutGap="1em">
         <mat-form-field>
-            <input matInput formControlName="code" placeholder="Item
+            <input matInput formControlName="code" placeholder="Item Code" type="text" required #code>
+        </mat-form-field>
+        <mat-form-field>
+            <input ma
