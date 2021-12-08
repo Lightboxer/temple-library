@@ -32,4 +32,5 @@
             <mat-hint>Leave this empty if the item is not a set</mat-hint>
         </mat-form-field>
         <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center">
-            <butto
+            <button mat-raised-button color="primary" [disabled]="!addItemForm.valid || submitting"
+                (click)="add(); code.focus()"
