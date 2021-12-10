@@ -10,4 +10,9 @@ describe('AddItemComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ AddItemComponent ]
     })
-    
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AddItemComponent);
+    component =
