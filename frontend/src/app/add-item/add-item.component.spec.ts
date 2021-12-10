@@ -4,4 +4,10 @@ import { AddItemComponent } from './add-item.component';
 
 describe('AddItemComponent', () => {
   let component: AddItemComponent;
-  let fixture: ComponentFixture<Add
+  let fixture: ComponentFixture<AddItemComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ AddItemComponent ]
+    })
+    
