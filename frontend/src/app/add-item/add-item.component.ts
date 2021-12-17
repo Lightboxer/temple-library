@@ -9,4 +9,8 @@ import { ErrorService } from '../services/error.service';
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.scss']
 })
-export class Add
+export class AddItemComponent implements OnInit {
+
+  @ViewChild('code') codeElement: ElementRef
+  @Input() isModal: boolean = false
+  
