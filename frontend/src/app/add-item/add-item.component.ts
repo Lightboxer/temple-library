@@ -13,4 +13,6 @@ export class AddItemComponent implements OnInit {
 
   @ViewChild('code') codeElement: ElementRef
   @Input() isModal: boolean = false
-  
+  @Output() closeModal = new EventEmitter<any>()
+
+  constructor(private apiService: ApiService, private errorService: E
