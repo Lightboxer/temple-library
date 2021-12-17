@@ -15,4 +15,9 @@ export class AddItemComponent implements OnInit {
   @Input() isModal: boolean = false
   @Output() closeModal = new EventEmitter<any>()
 
-  constructor(private apiService: ApiService, private errorService: E
+  constructor(private apiService: ApiService, private errorService: ErrorService, private location: Location) { }
+
+  submitting = false
+
+  addItemForm = new FormGroup({
+    code: new Fo
