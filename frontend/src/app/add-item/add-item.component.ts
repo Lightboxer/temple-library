@@ -20,4 +20,6 @@ export class AddItemComponent implements OnInit {
   submitting = false
 
   addItemForm = new FormGroup({
-    code: new Fo
+    code: new FormControl('', Validators.required),
+    setQuantity: new FormControl(''),
+    description: new FormControl('', Vali
