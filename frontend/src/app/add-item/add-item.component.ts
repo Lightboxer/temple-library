@@ -24,4 +24,10 @@ export class AddItemComponent implements OnInit {
     setQuantity: new FormControl(''),
     description: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),
-    cost: new FormControl('', Validators.requir
+    cost: new FormControl('', Validators.required),
+    price: new FormControl('', Validators.required),
+  });
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.codeE
