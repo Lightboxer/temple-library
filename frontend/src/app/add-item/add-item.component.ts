@@ -30,4 +30,10 @@ export class AddItemComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.codeE
+      this.codeElement.nativeElement.focus()
+    })
+  }
+
+  add() {
+    if (this.addItemForm.valid) {
+      if ((!this.addItemForm.con
