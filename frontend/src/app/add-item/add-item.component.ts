@@ -22,4 +22,6 @@ export class AddItemComponent implements OnInit {
   addItemForm = new FormGroup({
     code: new FormControl('', Validators.required),
     setQuantity: new FormControl(''),
-    description: new FormControl('', Vali
+    description: new FormControl('', Validators.required),
+    category: new FormControl('', Validators.required),
+    cost: new FormControl('', Validators.requir
