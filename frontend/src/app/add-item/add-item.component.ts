@@ -36,4 +36,4 @@ export class AddItemComponent implements OnInit {
 
   add() {
     if (this.addItemForm.valid) {
-      if ((!this.addItemForm.con
+      if ((!this.addItemForm.controls['setQuantity'].value || this.addItemForm.controls['setQuantity'].value > 0) && this.addItemForm.controls['price'].value >= 0 && this.addI
