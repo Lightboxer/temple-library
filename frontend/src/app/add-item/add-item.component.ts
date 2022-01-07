@@ -43,4 +43,7 @@ export class AddItemComponent implements OnInit {
         this.apiService.addItem(item).then(() => {
           this.submitting = false
           this.addItemForm.reset()
+          this.errorService.showSimpleSnackBar('Added')
+          if (this.isModal) this.closeModal.emit()
+        }).catch(err => {
       
