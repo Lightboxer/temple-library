@@ -46,4 +46,11 @@ export class AddItemComponent implements OnInit {
           this.errorService.showSimpleSnackBar('Added')
           if (this.isModal) this.closeModal.emit()
         }).catch(err => {
-      
+          this.submitting = false
+          this.errorService.showError(err)
+        })
+      }
+    }
+  }
+
+  b
