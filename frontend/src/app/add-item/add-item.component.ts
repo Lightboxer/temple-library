@@ -53,4 +53,8 @@ export class AddItemComponent implements OnInit {
     }
   }
 
-  b
+  back() {
+    this.location.back()
+  }
+
+}
