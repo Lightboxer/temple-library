@@ -8,4 +8,10 @@ describe('AddTransactionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddTransactionCompo
+      declarations: [ AddTransactionComponent ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AddTransactionCo
