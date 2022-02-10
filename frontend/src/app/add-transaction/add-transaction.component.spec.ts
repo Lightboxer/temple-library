@@ -4,4 +4,8 @@ import { AddTransactionComponent } from './add-transaction.component';
 
 describe('AddTransactionComponent', () => {
   let component: AddTransactionComponent;
-  let fixture: ComponentFixture<AddTransac
+  let fixture: ComponentFixture<AddTransactionComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ AddTransactionCompo
