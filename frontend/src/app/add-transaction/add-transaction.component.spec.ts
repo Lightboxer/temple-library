@@ -20,4 +20,6 @@ describe('AddTransactionComponent', () => {
   });
 
   it('should create', () => {
-    
+    expect(component).toBeTruthy();
+  });
+});
