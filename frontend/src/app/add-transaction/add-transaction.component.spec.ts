@@ -14,4 +14,10 @@ describe('AddTransactionComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddTransactionCo
+    fixture = TestBed.createComponent(AddTransactionComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    
