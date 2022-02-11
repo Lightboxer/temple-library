@@ -91,3 +91,45 @@ export class AddTransactionComponent implements OnInit {
     this.transactionItems.next(tempSI)
     if (this.transactionItems.value.length == 0) this.removeAdjustment()
   }
+
+  adjust() {
+    if (this.adjustments.value.length == 0) {
+      let amount: number = Number.parseFloat(prompt('Adjustment amount?'))
+      if (Number.isNaN(amount)) this.errorService.showSimpleSnackBar('Invalid input')
+      else {
+        let note = prompt('Adjustment note?')
+        let tempAdj = this.adjustments.value
+        tempAdj.push(new Adjustment(note, amount))
+        this.adjustments.next(tempAdj)
+      }
+    }
+  }
+
+  removeAdjustment() {
+    if (this.adjustments.value.length > 0) this.adjustments.next([])
+  }
+
+  addTransaction() {
+    if (confirm('Finalize this transaction?') && this.transactionItems.value.length > 0) {
+      this.submitting = true
+      this.apiService.makeTransaction(this.transactionItems.value, this.adjustments.value, this.type).then(transaction => {
+        this.submitting = false
+        this.errorService.showSimpleSnackBar('Transaction saved')
+        this.resetSearch()
+        this.transactionItems.next([])
+        this.adjustments.next([])
+      }).catch(err => {
+        this.submitting = false
+        this.errorService.showError(err)
+      })
+    }
+  }
+
+  back() {
+    this.location.back()
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe())
+  }
+}
