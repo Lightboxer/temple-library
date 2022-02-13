@@ -5,4 +5,6 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { HomeComponent } from './home/home.component';
 import { ItemsComponent } from './items/items.component';
-import { AddTransactionComponent } from './add
+import { AddTransactionComponent } from './add-transaction/add-transaction.component';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { Tr
