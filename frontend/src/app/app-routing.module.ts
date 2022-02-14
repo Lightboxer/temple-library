@@ -21,4 +21,10 @@ const routes: Routes = [
     data: { animation: 'home' }
   },
   {
-    path: 'configurat
+    path: 'configuration',
+    component: ConfigurationComponent,
+    data: { animation: 'configuration' }
+  },
+  {
+    path: 'items',
+    component: Ite
