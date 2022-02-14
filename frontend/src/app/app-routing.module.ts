@@ -13,4 +13,12 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/home',
-    path
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    data: { animation: 'home' }
+  },
+  {
+    path: 'configurat
