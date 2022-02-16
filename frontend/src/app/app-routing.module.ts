@@ -27,4 +27,10 @@ const routes: Routes = [
   },
   {
     path: 'items',
-    component: Ite
+    component: ItemsComponent,
+    data: { animation: 'items' }
+  },
+  {
+    path: 'addItem',
+    component: AddItemComponent,
+    data: { animatio
