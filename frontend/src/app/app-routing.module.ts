@@ -41,4 +41,7 @@ const routes: Routes = [
     data: { animation: 'editItem' }
   },
   {
-    pat
+    path: 'buy',
+    component: AddTransactionComponent,
+    data: { animation: 'buy', type: TransactionTypes.PURCHASE }
+  },
