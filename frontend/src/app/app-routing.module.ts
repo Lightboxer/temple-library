@@ -33,4 +33,12 @@ const routes: Routes = [
   {
     path: 'addItem',
     component: AddItemComponent,
-    data: { animatio
+    data: { animation: 'addItem' }
+  },
+  {
+    path: 'editItem',
+    component: EditItemComponent,
+    data: { animation: 'editItem' }
+  },
+  {
+    pat
