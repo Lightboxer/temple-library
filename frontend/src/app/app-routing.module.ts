@@ -45,3 +45,7 @@ const routes: Routes = [
     component: AddTransactionComponent,
     data: { animation: 'buy', type: TransactionTypes.PURCHASE }
   },
+  {
+    path: 'sales',
+    component: TransactionsComponent,
+    data: { animation: 'sales', type: TransactionTypes.SALE }
