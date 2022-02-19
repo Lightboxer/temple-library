@@ -58,4 +58,13 @@ const routes: Routes = [
   {
     path: 'purchases',
     component: TransactionsComponent,
-    data: { animation: 'purchases', type:
+    data: { animation: 'purchases', type: TransactionTypes.PURCHASE }
+  },
+  {
+    path: '**',
+    redirectTo: '/'
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forR
