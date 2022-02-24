@@ -11,4 +11,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-    }).comp
+    }).compileComponents();
+  });
+
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
