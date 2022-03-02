@@ -57,3 +57,20 @@ import { AddItemModalComponent } from './add-item/add-item-modal/add-item-modal.
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatIconModule,
+    MatTableModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDividerModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatAutocompleteModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
