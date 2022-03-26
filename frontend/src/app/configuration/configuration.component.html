@@ -9,4 +9,6 @@
     <form [formGroup]="configForm" fxLayout="column" fxLayoutGap="1em">
         <span class="mediumText">Configure New/Existing Data Folder</span>
         <mat-form-field>
-            <input #dataDir matInput formControlName="dataDir" placeholder="Da
+            <input #dataDir matInput formControlName="dataDir" placeholder="Data Directory Path" type="text" required>
+            <mat-hint>This is where TinyStock data is stored</mat-hint>
+        </mat-f
