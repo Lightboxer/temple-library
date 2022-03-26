@@ -11,4 +11,6 @@
         <mat-form-field>
             <input #dataDir matInput formControlName="dataDir" placeholder="Data Directory Path" type="text" required>
             <mat-hint>This is where TinyStock data is stored</mat-hint>
-        </mat-f
+        </mat-form-field>
+        <mat-card *ngIf="needDataDir" fxLayout="column" fxLayoutGap="1em">
+            <small>TinyS
