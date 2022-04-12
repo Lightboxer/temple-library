@@ -22,4 +22,6 @@
                 <input #password matInput formControlName="password" placeholder="Password" type="password">
                 <mat-hint>Minimum {{getMinPasswordLength()}} characters - UNRECOVERABLE</mat-hint>
             </mat-form-field>
-            <mat-checkbox fxFlex=
+            <mat-checkbox fxFlex="20%" matInput formControlName="rememberPassword">Remember Password</mat-checkbox>
+        </div>
+        <mat-card *ngIf="
