@@ -24,4 +24,5 @@
             </mat-form-field>
             <mat-checkbox fxFlex="20%" matInput formControlName="rememberPassword">Remember Password</mat-checkbox>
         </div>
-        <mat-card *ngIf="
+        <mat-card *ngIf="needPassword" fxLayout="column" fxLayoutGap="1em">
+            <small>TinyStock data must be password protected. If you're using an existing data
