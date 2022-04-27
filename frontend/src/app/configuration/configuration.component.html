@@ -45,4 +45,6 @@
                 & Save</button>
         </div>
     </form>
-    <mat-divider *ngIf="directoryExi
+    <mat-divider *ngIf="directoryExists"></mat-divider>
+    <form *ngIf="directoryExists" [formGroup]="changePasswordForm" fxLayout="column" fxLayoutGap="1em">
+        
