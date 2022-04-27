@@ -49,3 +49,5 @@
     <form *ngIf="directoryExists" [formGroup]="changePasswordForm" fxLayout="column" fxLayoutGap="1em">
         <span class="mediumText">Change Password of Existing Data Folder</span>
         <mat-form-field fxFlex="100%">
+            <input matInput formControlName="newPassword" placeholder="New Password" type="password">
+            <mat-hint>Minimum {{getMin
