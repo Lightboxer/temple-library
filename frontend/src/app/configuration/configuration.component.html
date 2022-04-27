@@ -41,4 +41,8 @@
         </mat-form-field>
         <div fxLayout="column" fxLayoutAlign="default start" fxLayoutAlign.lt-sm="default default">
             <button mat-raised-button color="primary" [disabled]="!configForm.valid || needPassword || submitting"
-                (click)="sav
+                (click)="save()">Test
+                & Save</button>
+        </div>
+    </form>
+    <mat-divider *ngIf="directoryExi
