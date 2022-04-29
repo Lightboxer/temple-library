@@ -50,4 +50,6 @@
         <span class="mediumText">Change Password of Existing Data Folder</span>
         <mat-form-field fxFlex="100%">
             <input matInput formControlName="newPassword" placeholder="New Password" type="password">
-            <mat-hint>Minimum {{getMin
+            <mat-hint>Minimum {{getMinPasswordLength()}} characters - UNRECOVERABLE</mat-hint>
+        </mat-form-field>
+        <div fx
