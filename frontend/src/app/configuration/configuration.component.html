@@ -57,4 +57,5 @@
                 [disabled]="!changePasswordForm.valid || needNewPassword || submitting || !configForm.controls['password'].valid"
                 (click)="changePassword()">Change</button>
         </div>
-        <mat-card *ngIf="needNewPasswor
+        <mat-card *ngIf="needNewPassword || !configForm.controls['password'].valid" fxLayout="column" fxLayoutGap="1em">
+            <small *ngIf="needNewPassword">Passwor
