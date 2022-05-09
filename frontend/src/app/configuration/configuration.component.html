@@ -58,4 +58,6 @@
                 (click)="changePassword()">Change</button>
         </div>
         <mat-card *ngIf="needNewPassword || !configForm.controls['password'].valid" fxLayout="column" fxLayoutGap="1em">
-            <small *ngIf="needNewPassword">Passwor
+            <small *ngIf="needNewPassword">Passwords must be at least {{getMinPasswordLength()}} characters
+                long.</small>
+            <small *ngIf="!
