@@ -60,4 +60,7 @@
         <mat-card *ngIf="needNewPassword || !configForm.controls['password'].valid" fxLayout="column" fxLayoutGap="1em">
             <small *ngIf="needNewPassword">Passwords must be at least {{getMinPasswordLength()}} characters
                 long.</small>
-            <small *ngIf="!
+            <small *ngIf="!configForm.controls['password'].valid">Enter the existing password in the top
+                section.</small>
+        </mat-card>
+    </for
