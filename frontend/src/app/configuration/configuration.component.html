@@ -63,4 +63,6 @@
             <small *ngIf="!configForm.controls['password'].valid">Enter the existing password in the top
                 section.</small>
         </mat-card>
-    </for
+    </form>
+    <mat-divider *ngIf="directoryExists"></mat-divider>
+    <div *ngIf="directoryExists" fxLayout="column" fxLayoutGap="1em
