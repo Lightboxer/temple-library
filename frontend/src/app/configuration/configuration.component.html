@@ -67,4 +67,5 @@
     <mat-divider *ngIf="directoryExists"></mat-divider>
     <div *ngIf="directoryExists" fxLayout="column" fxLayoutGap="1em">
         <span class="mediumText">Export Data</span>
-        <div fxLayout="column" fxLayoutAlign="default start" fxLay
+        <div fxLayout="column" fxLayoutAlign="default start" fxLayoutAlign.lt-sm="default default">
+            <button mat-raised-button color="accent" [disabled]="submitting" (click)="export()">Exp
