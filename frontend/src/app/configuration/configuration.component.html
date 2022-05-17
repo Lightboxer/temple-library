@@ -71,4 +71,7 @@
             <button mat-raised-button color="accent" [disabled]="submitting" (click)="export()">Export</button>
         </div>
         <mat-card fxLayout="column" fxLayoutGap="1em">
-            <small>Use this to download an unencr
+            <small>Use this to download an unencrypted copy of TinyStock data.</small>
+        </mat-card>
+    </div>
+    <mat-divider *ngIf="directoryExists"></mat-divider>
