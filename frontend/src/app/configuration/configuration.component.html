@@ -80,4 +80,5 @@
         <div fxLayout="row" fxLayoutGap="1em" fxLayout.lt-sm="column">
             <div fxLayout="column">
                 <label for="items-upload" class="custom-file-upload">Items</label>
-                <input id="items-u
+                <input id="items-upload" formControlName="itemsInput" placeholder="Items" type="file"
+                    (change)="onItemsFileChange($event
