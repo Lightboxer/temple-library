@@ -81,4 +81,7 @@
             <div fxLayout="column">
                 <label for="items-upload" class="custom-file-upload">Items</label>
                 <input id="items-upload" formControlName="itemsInput" placeholder="Items" type="file"
-                    (change)="onItemsFileChange($event
+                    (change)="onItemsFileChange($event)" required>
+            </div>
+            <div fxLayout="column">
+                <label for="transactions-upload" class="custo
