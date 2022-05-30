@@ -91,3 +91,6 @@
         </div>
         <div fxLayout="column" fxLayoutAlign="default start" fxLayoutAlign.lt-sm="default default">
             <button mat-raised-button color="accent" [disabled]="!importForm.valid || submitting"
+                (click)="importFiles()">Import</button>
+        </div>
+        <mat-card *ngIf="!importForm.valid" fxLayout="
