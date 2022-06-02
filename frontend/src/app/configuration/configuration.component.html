@@ -93,4 +93,6 @@
             <button mat-raised-button color="accent" [disabled]="!importForm.valid || submitting"
                 (click)="importFiles()">Import</button>
         </div>
-        <mat-card *ngIf="!importForm.valid" fxLayout="
+        <mat-card *ngIf="!importForm.valid" fxLayout="column" fxLayoutGap="1em">
+            <small>Use this to import TinyStock data files to irreversibly replace any existing data.</small>
+            
