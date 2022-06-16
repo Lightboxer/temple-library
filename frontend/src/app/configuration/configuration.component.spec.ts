@@ -6,4 +6,8 @@ describe('ConfigurationComponent', () => {
   let component: ConfigurationComponent;
   let fixture: ComponentFixture<ConfigurationComponent>;
 
-  beforeE
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ ConfigurationComponent ]
+    })
+    .co
