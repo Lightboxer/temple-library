@@ -10,4 +10,9 @@ describe('ConfigurationComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ConfigurationComponent ]
     })
-    .co
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ConfigurationComponent);
+    co
