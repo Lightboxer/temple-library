@@ -15,4 +15,9 @@ describe('ConfigurationComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ConfigurationComponent);
-    co
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruth
