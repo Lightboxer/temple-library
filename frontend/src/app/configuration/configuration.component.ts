@@ -199,3 +199,9 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
   getMinPasswordLength() {
     return this.apiService.minPasswordLength
   }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe())
+  }
+
+}
