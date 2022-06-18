@@ -20,4 +20,6 @@ describe('ConfigurationComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruth
+    expect(component).toBeTruthy();
+  });
+});
