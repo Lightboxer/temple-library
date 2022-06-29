@@ -14,4 +14,10 @@ describe('EditItemComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditItemCompone
+    fixture = TestBed.createComponent(EditItemComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expe
