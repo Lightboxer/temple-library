@@ -92,3 +92,13 @@ export class EditItemComponent implements OnInit {
       })
     }
   }
+
+  back() {
+    this.location.back()
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe())
+  }
+
+}
