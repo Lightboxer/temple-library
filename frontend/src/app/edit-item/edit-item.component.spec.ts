@@ -20,4 +20,6 @@ describe('EditItemComponent', () => {
   });
 
   it('should create', () => {
-    expe
+    expect(component).toBeTruthy();
+  });
+});
