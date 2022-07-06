@@ -3,4 +3,5 @@
         <small class="lowContrast"><b>Keyboard Shortcuts: <kbd>Alt + /</kbd></b></small>
         <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="end">
             <span class="themeCircle" style="background-color: #EEEEEE;" (click)="switchTheme(0)" matTooltip="Light"
-                [ngClass]="{ 'themeCircleSelected': (theme == 0), 'themeCircleDeselected
+                [ngClass]="{ 'themeCircleSelected': (theme == 0), 'themeCircleDeselected': (theme != 0) }"></span>
+            <span class="themeCircle" style="background-color: #222222;" (click)="switchTheme(1)" matTooltip=
