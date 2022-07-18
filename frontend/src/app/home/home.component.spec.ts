@@ -13,4 +13,7 @@ describe('HomeComponent', () => {
     .compileComponents();
   });
 
-  b
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
+   
