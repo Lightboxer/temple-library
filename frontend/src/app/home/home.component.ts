@@ -23,3 +23,20 @@ export class HomeComponent implements OnInit {
     })
     this.subscriptions.push(this.themeService.themeSource.subscribe(theme => {
       this.theme = theme
+    }))
+  }
+
+  getTimePhrase = (now: Date = new Date()) => {
+    if (now.getHours() == 0 || now.getHours() >= 18) return 'Evening'
+    if (now.getHours() >= 12) return 'Afternoon'
+    return 'Morning'
+  }
+
+  switchTheme(theme: themes) {
+    this.themeService.updateTheme(theme)
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe())
+  }
+}
