@@ -5,4 +5,6 @@
             #codeInput>
     </mat-form-field>
     <button mat-button color="accent" (click)="addItem()" [disabled]="selectedItem || loading || submitting">+</button>
-    <mat-form-field fx
+    <mat-form-field fxFlex="fill">
+        <input matInput formControlName="quantity" placeholder="Quantity" type="number" required>
+    </mat
