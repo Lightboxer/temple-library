@@ -4,4 +4,5 @@
         <input matInput formControlName="item" placeholder="Item" type="text" [matAutocomplete]="auto" required
             #codeInput>
     </mat-form-field>
-    <button mat-button
+    <button mat-button color="accent" (click)="addItem()" [disabled]="selectedItem || loading || submitting">+</button>
+    <mat-form-field fx
