@@ -9,4 +9,7 @@
         <input matInput formControlName="quantity" placeholder="Quantity" type="number" required>
     </mat-form-field>
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="
+        <mat-option *ngFor="let item of filteredOptions | async" [value]="displayFn(item)">
+            {{displayFn(item)}}
+        </mat-option>
+    </m
