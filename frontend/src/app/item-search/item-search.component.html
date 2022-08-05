@@ -7,4 +7,6 @@
     <button mat-button color="accent" (click)="addItem()" [disabled]="selectedItem || loading || submitting">+</button>
     <mat-form-field fxFlex="fill">
         <input matInput formControlName="quantity" placeholder="Quantity" type="number" required>
-    </mat
+    </mat-form-field>
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="
