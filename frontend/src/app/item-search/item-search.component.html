@@ -12,4 +12,5 @@
         <mat-option *ngFor="let item of filteredOptions | async" [value]="displayFn(item)">
             {{displayFn(item)}}
         </mat-option>
-    </m
+    </mat-autocomplete>
+    <button mat-raised-button color="accent" [disabled]="!itemForm.valid || loading || submitting || !selectedItem
