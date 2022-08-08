@@ -13,4 +13,6 @@
             {{displayFn(item)}}
         </mat-option>
     </mat-autocomplete>
-    <button mat-raised-button color="accent" [disabled]="!itemForm.valid || loading || submitting || !selectedItem
+    <button mat-raised-button color="accent" [disabled]="!itemForm.valid || loading || submitting || !selectedItem"
+        (click)="submit(); codeInput.focus()">{{buttonText}}</button>
+</form>
