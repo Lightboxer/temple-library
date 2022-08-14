@@ -14,4 +14,9 @@ describe('ItemSearchComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComp
+    fixture = TestBed.createComponent(ItemSearchComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should creat
