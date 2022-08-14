@@ -65,3 +65,60 @@ export class ItemSearchComponent implements OnInit, AfterViewInit {
       this.addDialog.close()
     }
   }
+
+  ngOnInit(): void {
+    this.itemForm.controls['quantity'].disable()
+    this.loadItems()
+    this.itemForm.controls['item'].valueChanges.subscribe(value => {
+      let item = null
+      for (let i = 0; i < this.items.length; i++) {
+        if (this.displayFn(this.items[i]).trim() == value?.trim()) item = this.items[i]
+      }
+      this.selectedItem = item
+      item ? this.itemForm.controls['quantity'].enable() : this.itemForm.controls['quantity'].disable()
+    })
+    this.filteredOptions = this.itemForm.controls['item'].valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this.searchItem(value))
+      )
+    this.reset?.subscribe(() => {
+      this.resetSearch()
+    })
+  }
+
+  ngAfterViewInit() {
+    this.codeInput.nativeElement.focus()
+  }
+
+  private searchItem(value: string): Item[] {
+    const filterValue = value?.toLowerCase().split(' ').map(word => word.trim()).filter(word => word != '-') || ''
+    return this.items.filter(item => {
+      for (let i = 0; i < filterValue.length; i++) {
+        if (!item.description.toLowerCase().includes(filterValue[i]) && !item.code.toLowerCase().includes(filterValue[i])) return false
+      }
+      return true
+    })
+  }
+
+  displayFn(item: Item): string {
+    if (item)
+      return `${item.code} - ${item.description}${(item.setQuantity ? ` - Set of ${item.setQuantity}` : ``)}`
+    else return ''
+  }
+
+  resetSearch() {
+    this.itemForm.reset()
+    this.codeInput?.nativeElement.focus()
+  }
+
+  submit() {
+    if (!this.loading && !this.submitting && this.itemForm.valid && this.selectedItem) {
+      let quantityAvailable = this.selectedItem.quantity
+      this.selectedItem.quantity = Number.parseInt(this.itemForm.controls['quantity'].value)
+      this.item.emit({ item: this.selectedItem, quantityAvailable })
+      this.resetSearch()
+    }
+  }
+
+}
