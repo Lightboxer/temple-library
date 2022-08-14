@@ -8,4 +8,10 @@ describe('ItemSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-     
+      declarations: [ ItemSearchComponent ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComp
