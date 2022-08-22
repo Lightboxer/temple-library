@@ -13,4 +13,7 @@
     <div class="autoOverflow" *ngIf="displayedItems.value.length > 0">
         <table mat-table [dataSource]="displayedItems" fxFill>
             <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-            <tr mat-row *matRowDef="let myRowData; c
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+            <ng-container matColumnDef="code">
+                <th mat-header-cell *matHeaderCellDef> Code </th>
+    
