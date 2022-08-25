@@ -28,4 +28,7 @@
             </ng-container>
             <ng-container matColumnDef="setQuantity">
                 <th mat-header-cell *matHeaderCellDef> Set Quantity </th>
-                <td mat-cell *matCellDef="let item"> {{item.setQuantity ? commafy(item.setQuantit
+                <td mat-cell *matCellDef="let item"> {{item.setQuantity ? commafy(item.setQuantity) : 'Not a Set'}} </td>
+            </ng-container>
+            <ng-container matColumnDef="category">
+               
