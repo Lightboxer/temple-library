@@ -27,4 +27,5 @@
                 <td mat-cell *matCellDef="let item"> {{commafy(item.quantity)}} </td>
             </ng-container>
             <ng-container matColumnDef="setQuantity">
-                <th mat-heade
+                <th mat-header-cell *matHeaderCellDef> Set Quantity </th>
+                <td mat-cell *matCellDef="let item"> {{item.setQuantity ? commafy(item.setQuantit
