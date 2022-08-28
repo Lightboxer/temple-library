@@ -35,4 +35,6 @@
                 <td mat-cell *matCellDef="let item"> {{item.category}} </td>
             </ng-container>
             <ng-container matColumnDef="cost">
-                <th mat-header-cell *matHeaderC
+                <th mat-header-cell *matHeaderCellDef> Cost </th>
+                <td mat-cell *matCellDef="let item"> {{commafy(item.cost)}} </td>
+         
