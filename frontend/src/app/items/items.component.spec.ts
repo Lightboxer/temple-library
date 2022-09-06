@@ -7,4 +7,11 @@ describe('ItemsComponent', () => {
   let fixture: ComponentFixture<ItemsComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingM
+    await TestBed.configureTestingModule({
+      declarations: [ ItemsComponent ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(It
