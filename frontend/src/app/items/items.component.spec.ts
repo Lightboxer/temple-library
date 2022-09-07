@@ -20,4 +20,6 @@ describe('ItemsComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBe
+    expect(component).toBeTruthy();
+  });
+});
