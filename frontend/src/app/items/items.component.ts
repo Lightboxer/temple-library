@@ -9,4 +9,9 @@ import { HelperService } from '../services/helper.service';
 
 @Component({
   selector: 'app-items',
-  temp
+  templateUrl: './items.component.html',
+  styleUrls: ['./items.component.scss']
+})
+export class ItemsComponent implements OnInit {
+
+  
