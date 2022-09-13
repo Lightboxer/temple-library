@@ -19,4 +19,6 @@ export class ItemsComponent implements OnInit {
 
   displayedItems = new BehaviorSubject(this.items)
 
-  columnsToDisplay = ['code', 'setQuantity
+  columnsToDisplay = ['code', 'setQuantity', 'description', 'quantity', 'category', 'cost', 'price', 'edit']
+
+  @ViewChild('addItem', { read: ElementRef }) addItemElement: El
