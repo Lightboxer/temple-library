@@ -14,4 +14,9 @@ import { HelperService } from '../services/helper.service';
 })
 export class ItemsComponent implements OnInit {
 
-  
+  items: Item[] = []
+  loading = false
+
+  displayedItems = new BehaviorSubject(this.items)
+
+  columnsToDisplay = ['code', 'setQuantity
