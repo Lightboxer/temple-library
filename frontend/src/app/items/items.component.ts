@@ -28,4 +28,8 @@ export class ItemsComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.addItemElement.nativeElement.focus()
-    
+    })
+    this.loading = true
+    this.apiService.items().then(items => {
+      this.loading = false
+      this.items = items
