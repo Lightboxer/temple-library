@@ -23,4 +23,9 @@ export class ItemsComponent implements OnInit {
 
   @ViewChild('addItem', { read: ElementRef }) addItemElement: ElementRef
 
-  constructor(private apiService: ApiService, private errorService: ErrorService, private router: Router, private location: L
+  constructor(private apiService: ApiService, private errorService: ErrorService, private router: Router, private location: Location, private helper: HelperService) { }
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.addItemElement.nativeElement.focus()
+    
