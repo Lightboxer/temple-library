@@ -33,3 +33,8 @@ export class ItemsComponent implements OnInit {
     this.apiService.items().then(items => {
       this.loading = false
       this.items = items
+      this.displayedItems.next(this.items)
+    }).catch(err => {
+      this.loading = false
+      this.items = []
+      this.errorService.showError
