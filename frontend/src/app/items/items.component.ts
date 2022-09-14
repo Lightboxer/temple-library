@@ -21,4 +21,6 @@ export class ItemsComponent implements OnInit {
 
   columnsToDisplay = ['code', 'setQuantity', 'description', 'quantity', 'category', 'cost', 'price', 'edit']
 
-  @ViewChild('addItem', { read: ElementRef }) addItemElement: El
+  @ViewChild('addItem', { read: ElementRef }) addItemElement: ElementRef
+
+  constructor(private apiService: ApiService, private errorService: ErrorService, private router: Router, private location: L
