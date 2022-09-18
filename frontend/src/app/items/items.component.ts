@@ -37,4 +37,11 @@ export class ItemsComponent implements OnInit {
     }).catch(err => {
       this.loading = false
       this.items = []
-      this.errorService.showError
+      this.errorService.showError(err)
+      this.displayedItems.next(this.items)
+    })
+  }
+
+  commafy(num: number) { return this.helper.commafy(num) }
+
+  ed
