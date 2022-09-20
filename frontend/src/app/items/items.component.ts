@@ -44,4 +44,5 @@ export class ItemsComponent implements OnInit {
 
   commafy(num: number) { return this.helper.commafy(num) }
 
-  ed
+  edit(code: string, setQuantity: number | null) {
+    this.router.navigate(['/editItem'], { queryParams: { code, setQuanti
