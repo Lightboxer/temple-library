@@ -167,3 +167,111 @@ export class ApiService {
   }
 
   findItem(code: string, setQuantity: number | null) {
+    const body = { dataDir: this.dataDir, password: this.password, code, setQuantity }
+    if (this.ipc && this.host?.trim().length == 0) {
+      return new Promise<Item>((resolve, reject) => {
+        this.ipc.once('findItemResponse', (event, response) => {
+          resolve(response)
+        })
+        this.ipc.once('findItemError', (event, error) => {
+          reject(error)
+        })
+        this.ipc.send('findItem', body)
+        setTimeout(() => {
+          reject(new AppError(AppErrorCodes.ELECTRON_TIME_OUT))
+        }, this.electronWaitTime)
+      })
+    } else return this.http.post(this.host + '/api/findItem', body).toPromise() as Promise<Item>
+  }
+
+  editItem(item: Item) {
+    if (typeof item.setQuantity == 'string') item.setQuantity = null
+    const body = { dataDir: this.dataDir, password: this.password, item }
+    if (this.ipc && this.host?.trim().length == 0) {
+      return new Promise<null>((resolve, reject) => {
+        this.ipc.once('editItemResponse', (event, response) => {
+          resolve(response)
+        })
+        this.ipc.once('editItemError', (event, error) => {
+          reject(error)
+        })
+        this.ipc.send('editItem', body)
+        setTimeout(() => {
+          reject(new AppError(AppErrorCodes.ELECTRON_TIME_OUT))
+        }, this.electronWaitTime)
+      })
+    } else return this.http.post(this.host + '/api/editItem', body).toPromise() as Promise<null>
+  }
+
+  deleteItem(code: string, setQuantity: string | null) {
+    const body = { dataDir: this.dataDir, password: this.password, code, setQuantity }
+    if (this.ipc && this.host?.trim().length == 0) {
+      return new Promise<null>((resolve, reject) => {
+        this.ipc.once('deleteItemResponse', (event, response) => {
+          resolve(response)
+        })
+        this.ipc.once('deleteItemError', (event, error) => {
+          reject(error)
+        })
+        this.ipc.send('deleteItem', body)
+        setTimeout(() => {
+          reject(new AppError(AppErrorCodes.ELECTRON_TIME_OUT))
+        }, this.electronWaitTime)
+      })
+    } else return this.http.post(this.host + '/api/deleteItem', body).toPromise() as Promise<null>
+  }
+
+  makeTransaction(transactionItems: Item[], adjustments: Adjustment[], type: TransactionTypes) {
+    const body = { dataDir: this.dataDir, password: this.password, transactionItems, adjustments, type }
+    if (this.ipc && this.host?.trim().length == 0) {
+      return new Promise<Transaction>((resolve, reject) => {
+        this.ipc.once('makeTransactionResponse', (event, response) => {
+          resolve(response)
+        })
+        this.ipc.once('makeTransactionError', (event, error) => {
+          reject(error)
+        })
+        this.ipc.send('makeTransaction', body)
+        setTimeout(() => {
+          reject(new AppError(AppErrorCodes.ELECTRON_TIME_OUT))
+        }, this.electronWaitTime)
+      })
+    } else return this.http.post(this.host + '/api/makeTransaction', body).toPromise() as Promise<Transaction>
+  }
+
+  changePassword(password: string, newPassword: string) {
+    const body = { dataDir: this.dataDir, password, newPassword }
+    if (this.ipc && this.host?.trim().length == 0) {
+      return new Promise<null>((resolve, reject) => {
+        this.ipc.once('changePasswordResponse', (event, response) => {
+          resolve(response)
+        })
+        this.ipc.once('changePasswordError', (event, error) => {
+          reject(error)
+        })
+        this.ipc.send('changePassword', body)
+        setTimeout(() => {
+          reject(new AppError(AppErrorCodes.ELECTRON_TIME_OUT))
+        }, this.electronWaitTime)
+      })
+    } else return this.http.post(this.host + '/api/changePassword', body).toPromise() as Promise<null>
+  }
+
+  importData(items: Item[], transactions: Transaction[]) {
+    const body = { dataDir: this.dataDir, password: this.password, items, transactions }
+    if (this.ipc && this.host?.trim().length == 0) {
+      return new Promise<null>((resolve, reject) => {
+        this.ipc.once('importDataResponse', (event, response) => {
+          resolve(response)
+        })
+        this.ipc.once('importDataError', (event, error) => {
+          reject(error)
+        })
+        this.ipc.send('importData', body)
+        setTimeout(() => {
+          reject(new AppError(AppErrorCodes.ELECTRON_TIME_OUT))
+        }, this.electronWaitTime)
+      })
+    } else return this.http.post(this.host + '/api/importData', body).toPromise() as Promise<null>
+  }
+}
