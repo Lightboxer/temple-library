@@ -7,4 +7,10 @@ describe('ErrorService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ErrorSe
+    service = TestBed.inject(ErrorService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});
