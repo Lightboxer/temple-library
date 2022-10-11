@@ -141,3 +141,19 @@ export class ErrorService {
       this.subscriptions.push(this.snackBar.open(error.message, actionText).onAction().subscribe(() => {
         if (callback) {
           callback()
+        }
+      }))
+    }
+    if (error.fixedCallback) {
+      error.fixedCallback()
+    }
+  }
+
+  clearError() {
+    this.snackBar.dismiss()
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe())
+  }
+}
