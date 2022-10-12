@@ -4,4 +4,9 @@ import { TransactionTypes } from 'tinystock-models';
 @Injectable({
   providedIn: 'root'
 })
-export 
+export class HelperService {
+
+  constructor() { }
+
+  getTransactionTypeVerb(type: TransactionTypes) {
+    switch (type)
