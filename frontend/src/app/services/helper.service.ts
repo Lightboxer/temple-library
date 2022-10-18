@@ -15,4 +15,10 @@ export class HelperService {
         break;
       case TransactionTypes.PURCHASE:
         return 'Buy'
-        
+        break;
+    }
+  }
+
+  getTransactionTypeNoun(type: TransactionTypes) {
+    switch (type) {
+      case TransactionTypes.SALE:
