@@ -9,4 +9,10 @@ export class HelperService {
   constructor() { }
 
   getTransactionTypeVerb(type: TransactionTypes) {
-    switch (type)
+    switch (type) {
+      case TransactionTypes.SALE:
+        return 'Sell'
+        break;
+      case TransactionTypes.PURCHASE:
+        return 'Buy'
+        
