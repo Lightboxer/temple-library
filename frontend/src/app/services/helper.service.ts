@@ -22,3 +22,9 @@ export class HelperService {
   getTransactionTypeNoun(type: TransactionTypes) {
     switch (type) {
       case TransactionTypes.SALE:
+        return 'Sale'
+        break;
+      case TransactionTypes.PURCHASE:
+        return 'Purchase'
+        break;
+ 
