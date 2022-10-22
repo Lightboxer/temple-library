@@ -27,4 +27,11 @@ export class HelperService {
       case TransactionTypes.PURCHASE:
         return 'Purchase'
         break;
- 
+    }
+  }
+
+  isPurchaseType(type: TransactionTypes) {
+    return type == TransactionTypes.PURCHASE
+  }
+
+  comma
