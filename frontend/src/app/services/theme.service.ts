@@ -6,4 +6,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ThemeService {
 
-  constructor()
+  constructor() { }
+
+  themeSource = new BehaviorSubject(themes.responsiveTheme);
+
+  updateTheme(theme: themes) {
+    this.themeSource.next(them
