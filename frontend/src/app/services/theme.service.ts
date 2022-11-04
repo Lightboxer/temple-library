@@ -17,4 +17,6 @@ export class ThemeService {
 
   loadTheme() {
     let storedTheme: themes
-    storedTheme = Number.p
+    storedTheme = Number.parseInt(localStorage.getItem('theme'))
+    if (isNaN(storedTheme)) storedTheme = themes.responsiveTheme
+    thi
