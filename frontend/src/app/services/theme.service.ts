@@ -19,4 +19,10 @@ export class ThemeService {
     let storedTheme: themes
     storedTheme = Number.parseInt(localStorage.getItem('theme'))
     if (isNaN(storedTheme)) storedTheme = themes.responsiveTheme
-    thi
+    this.updateTheme(storedTheme)
+  }
+}
+
+export enum themes {
+  lightTheme, darkTheme, responsiveTheme
+}
