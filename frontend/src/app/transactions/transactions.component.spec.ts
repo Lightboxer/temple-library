@@ -4,4 +4,8 @@ import { TransactionsComponent } from './transactions.component';
 
 describe('TransactionsComponent', () => {
   let component: TransactionsComponent;
-  let fixture: 
+  let fixture: ComponentFixture<TransactionsComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+ 
