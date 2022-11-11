@@ -8,4 +8,10 @@ describe('TransactionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
- 
+      declarations: [ TransactionsComponent ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = T
