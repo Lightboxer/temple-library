@@ -17,4 +17,9 @@ describe('TransactionsComponent', () => {
     fixture = TestBed.createComponent(TransactionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  })
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
