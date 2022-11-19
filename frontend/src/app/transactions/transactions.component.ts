@@ -10,4 +10,11 @@ import { HelperService } from '../services/helper.service';
 @Component({
   selector: 'app-transactions',
   templateUrl: './transactions.component.html',
-  styleUrls: ['./transactions.com
+  styleUrls: ['./transactions.component.scss']
+})
+export class TransactionsComponent implements OnInit {
+
+  transactions: Transaction[] = []
+  loading = false
+
+  display
