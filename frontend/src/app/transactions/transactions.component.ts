@@ -7,3 +7,7 @@ import { ApiService } from '../services/api.service';
 import { ErrorService } from '../services/error.service';
 import { HelperService } from '../services/helper.service';
 
+@Component({
+  selector: 'app-transactions',
+  templateUrl: './transactions.component.html',
+  styleUrls: ['./transactions.com
