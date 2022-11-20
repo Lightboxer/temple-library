@@ -25,4 +25,6 @@ export class TransactionsComponent implements OnInit {
   noun: string = ''
   verb: string = ''
 
-  constructor(private apiService: ApiService, private errorService: ErrorS
+  constructor(private apiService: ApiService, private errorService: ErrorService, private router: Router, private route: ActivatedRoute, private location: Location, private helper: HelperService) { }
+
+  ngO
