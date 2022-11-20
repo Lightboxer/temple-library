@@ -21,4 +21,8 @@ export class TransactionsComponent implements OnInit {
 
   columnsToDisplay = ['date', 'items', 'adjustments', 'total']
 
-  type: TransactionTypes = TransactionTypes
+  type: TransactionTypes = TransactionTypes.SALE;
+  noun: string = ''
+  verb: string = ''
+
+  constructor(private apiService: ApiService, private errorService: ErrorS
