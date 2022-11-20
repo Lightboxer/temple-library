@@ -17,4 +17,8 @@ export class TransactionsComponent implements OnInit {
   transactions: Transaction[] = []
   loading = false
 
-  display
+  displayedTransactions = new BehaviorSubject(this.transactions)
+
+  columnsToDisplay = ['date', 'items', 'adjustments', 'total']
+
+  type: TransactionTypes = TransactionTypes
