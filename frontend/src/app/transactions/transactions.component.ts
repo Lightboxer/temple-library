@@ -30,4 +30,8 @@ export class TransactionsComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       if (!(data.type in TransactionTypes)) {
-        this.errorService.show
+        this.errorService.showSimpleSnackBar('Transaction type is not valid.')
+        this.router.navigate(['/'])
+      } else {
+        this.type = data.type
+        thi
