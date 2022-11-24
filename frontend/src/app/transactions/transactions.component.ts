@@ -27,4 +27,7 @@ export class TransactionsComponent implements OnInit {
 
   constructor(private apiService: ApiService, private errorService: ErrorService, private router: Router, private route: ActivatedRoute, private location: Location, private helper: HelperService) { }
 
-  ngO
+  ngOnInit(): void {
+    this.route.data.subscribe(data => {
+      if (!(data.type in TransactionTypes)) {
+        this.errorService.show
