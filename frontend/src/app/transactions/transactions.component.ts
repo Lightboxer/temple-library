@@ -41,4 +41,5 @@ export class TransactionsComponent implements OnInit {
     this.loading = true
     this.apiService.transactions().then(transactions => {
       this.loading = false
-      this.trans
+      this.transactions = transactions
+      this.displayedTransactions.next(this.transactions.filter(transaction => transaction.t
