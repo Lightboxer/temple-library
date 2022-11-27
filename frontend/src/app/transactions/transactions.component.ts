@@ -37,3 +37,8 @@ export class TransactionsComponent implements OnInit {
         this.noun = this.helper.getTransactionTypeNoun(this.type)
         this.verb = this.helper.getTransactionTypeVerb(this.type)
       }
+    })
+    this.loading = true
+    this.apiService.transactions().then(transactions => {
+      this.loading = false
+      this.trans
