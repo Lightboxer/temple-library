@@ -34,4 +34,6 @@ export class TransactionsComponent implements OnInit {
         this.router.navigate(['/'])
       } else {
         this.type = data.type
-        thi
+        this.noun = this.helper.getTransactionTypeNoun(this.type)
+        this.verb = this.helper.getTransactionTypeVerb(this.type)
+      }
