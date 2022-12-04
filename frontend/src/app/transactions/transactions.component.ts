@@ -46,4 +46,9 @@ export class TransactionsComponent implements OnInit {
     }).catch(err => {
       this.loading = false
       this.transactions = []
-      this.errorService.showErro
+      this.errorService.showError(err)
+      this.displayedTransactions.next(this.transactions)
+    })
+  }
+
+  commafy(num: number) { return this.helper.commafy(n
