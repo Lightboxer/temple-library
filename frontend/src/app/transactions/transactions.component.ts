@@ -42,4 +42,8 @@ export class TransactionsComponent implements OnInit {
     this.apiService.transactions().then(transactions => {
       this.loading = false
       this.transactions = transactions
-      this.displayedTransactions.next(this.transactions.filter(transaction => transaction.t
+      this.displayedTransactions.next(this.transactions.filter(transaction => transaction.type == this.type))
+    }).catch(err => {
+      this.loading = false
+      this.transactions = []
+      this.errorService.showErro
