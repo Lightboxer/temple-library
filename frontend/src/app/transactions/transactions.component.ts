@@ -51,4 +51,7 @@ export class TransactionsComponent implements OnInit {
     })
   }
 
-  commafy(num: number) { return this.helper.commafy(n
+  commafy(num: number) { return this.helper.commafy(num) }
+  isPurchaseType() { return this.helper.isPurchaseType(this.type) }
+
+  getTransactionTotal(transaction: Transac
