@@ -56,4 +56,9 @@ export class TransactionsComponent implements OnInit {
 
   getTransactionTotal(transaction: Transaction) {
     let total = 0
-    transaction.items.forEach(item => total += (this.isPurchaseType() ? item.cost : item.price) * it
+    transaction.items.forEach(item => total += (this.isPurchaseType() ? item.cost : item.price) * item.quantity)
+    transaction.adjustments.forEach(adjustment => total += adjustment.amount)
+    return total
+  }
+
+  toDateString(dateStri
