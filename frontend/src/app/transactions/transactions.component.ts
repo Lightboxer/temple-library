@@ -67,4 +67,7 @@ export class TransactionsComponent implements OnInit {
   }
 
   back() {
-    this.location.back(
+    this.location.back()
+  }
+
+}
