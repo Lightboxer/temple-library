@@ -61,4 +61,10 @@ export class TransactionsComponent implements OnInit {
     return total
   }
 
-  toDateString(dateStri
+  toDateString(dateString) {
+    const date = new Date(dateString)
+    return date.toLocaleString()
+  }
+
+  back() {
+    this.location.back(
