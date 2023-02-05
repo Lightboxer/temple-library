@@ -14,4 +14,8 @@
  * Learn more in https://angular.io/guide/browser-support
  */
 
-/********************
+/***************************************************************************************************
+ * BROWSER POLYFILLS
+ */
+
+/** IE10 and IE11 requires the follow
