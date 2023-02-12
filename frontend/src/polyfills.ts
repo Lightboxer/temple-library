@@ -22,4 +22,5 @@
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
 
 /**
- * We
+ * Web Animations `@angular/platform-browser/animations`
+ * Only required if AnimationBuilder is used within the application and using IE/Edge
