@@ -30,4 +30,5 @@
 
 /**
  * By default, zone.js will patch all possible macroTask and DomEvents
- * user can disabl
+ * user can disable parts of macroTask/DomEvents patch by setting following flags
+ * because those flags need to be set before `zon
