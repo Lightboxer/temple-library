@@ -91,3 +91,114 @@ export function instanceOfAdjustment(object: any): object is Adjustment {
 }
 
 export enum TransactionTypes {
+    SALE,
+    PURCHASE
+}
+
+export class Transaction {
+    id: string
+    date: Date
+    items: Item[]
+    adjustments: Adjustment[]
+    type: TransactionTypes
+
+    constructor(id: string | null, date: Date, items: Item[], adjustments: Adjustment[], type: TransactionTypes) {
+        this.id = id ? id.trim() : Math.round(Math.random() * 10000000000000000).toString(),
+            this.date = date,
+            this.items = items,
+            this.adjustments = adjustments,
+            this.type = type
+    }
+}
+
+export function instanceOfTransaction(object: any): object is Transaction {
+    if (typeof object != 'object') return false
+    let hasProps = (
+        'id' in object &&
+        'date' in object &&
+        'items' in object &&
+        'adjustments' in object &&
+        'type' in object
+    )
+    if (!hasProps) return false
+    let goodPropTypes = typeof object.id == 'string'
+    if (goodPropTypes && object.id.trim() == '') goodPropTypes = false
+    if (goodPropTypes && typeof object.date == 'string') {
+        try { new Date(object.date) } catch (err) { goodPropTypes = false }
+    } else if (goodPropTypes && !(object.date instanceof Date)) {
+        goodPropTypes = false
+    }
+    if (goodPropTypes && !Array.isArray(object.items)) goodPropTypes = false
+    if (goodPropTypes && !Array.isArray(object.adjustments)) goodPropTypes = false
+    for (let i = 0; i < object.items.length && goodPropTypes; i++) {
+        if (!instanceOfItem(object.items[i])) goodPropTypes = false
+    }
+    for (let i = 0; i < object.adjustments.length && goodPropTypes; i++) {
+        if (!instanceOfAdjustment(object.adjustments[i])) goodPropTypes = false
+    }
+    if (goodPropTypes && !(object.type in TransactionTypes)) goodPropTypes = false
+    return goodPropTypes
+}
+
+export function instanceOfTransactions(object: any): object is Transaction[] {
+    if (!Array.isArray(object)) return false
+    let transactionsValid = true
+    for (let i = 0; i < object.length && transactionsValid; i++) {
+        if (!instanceOfTransaction(object[i])) transactionsValid = false
+    }
+    return transactionsValid
+}
+
+export enum AppErrorCodes {
+    MISSING_DIRECTORY,
+    CORRUPT_ENCRYPTED_JSON,
+    WRONG_DECRYPTION_PASSWORD,
+    CORRUPT_ITEMS_JSON,
+    CORRUPT_TRANSACTIONS_JSON,
+    MISSING_ITEMS_ARRAY,
+    MISSING_TRANSACTIONS_ARRAY,
+    CORRUPT_ITEM_IN_JSON,
+    CORRUPT_TRANSACTION_IN_JSON,
+    ITEM_NOT_FOUND,
+    QUANTITY_TOO_LOW,
+    ITEM_EXISTS,
+    INVALID_ITEM,
+    INVALID_ADJUSTMENT,
+    INVALID_TRANSACTION,
+    INVALID_ENCRYPTED_JSON,
+    MISSING_ARGUMENT,
+    INVALID_ARGUMENT,
+    ELECTRON_TIME_OUT
+}
+
+export class AppError {
+    code: AppErrorCodes
+    data: any
+
+    constructor(code: AppErrorCodes, data: any = null) {
+        this.code = code
+        this.data = data
+    }
+}
+
+export function instanceOfAppError(object: any): object is AppError {
+    if (typeof object != 'object') return false
+    let hasProps = (
+        'code' in object &&
+        'data' in object
+    )
+    if (!hasProps) return false
+    let goodPropTypes = (
+        typeof object.code == 'number' &&
+        typeof object.data == 'object'
+    )
+    if (!goodPropTypes) return false
+    let validProps = (
+        object.code in AppErrorCodes
+    )
+    return validProps
+}
+
+export class EncryptedData {
+    iv: string
+    content: string
