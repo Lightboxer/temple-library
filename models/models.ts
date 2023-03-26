@@ -202,3 +202,36 @@ export function instanceOfAppError(object: any): object is AppError {
 export class EncryptedData {
     iv: string
     content: string
+    date: Date
+
+    constructor(iv: string, content: string) {
+        this.iv = iv.trim()
+        this.content = content.trim()
+        this.date = new Date()
+    }
+}
+
+export function instanceOfEncryptedData(object: any): object is EncryptedData {
+    if (typeof object != 'object') return false
+    let hasProps = (
+        'iv' in object &&
+        'content' in object &&
+        'date' in object
+    )
+    if (!hasProps) return false
+    let goodPropTypes = (
+        typeof object.iv == 'string' &&
+        typeof object.content == 'string'
+    )
+    if (goodPropTypes && typeof object.date == 'string') {
+        try { new Date(object.date) } catch (err) { goodPropTypes = false }
+    } else if (goodPropTypes && !(object.date instanceof Date)) {
+        goodPropTypes = false
+    }
+    if (!goodPropTypes) return false
+    let validProps = (
+        object.iv.trim() != '' &&
+        object.content.trim() != ''
+    )
+    return validProps
+}
