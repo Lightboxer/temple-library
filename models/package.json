@@ -1,4 +1,10 @@
 {
   "name": "tinystock-models",
   "version": "1.0.0",
-  "descripti
+  "description": "",
+  "main": "models.js",
+  "scripts": {
+    "dev": "tsc models.ts -d -w",
+    "build": "tsc models.ts -d"
+  },
+  "author": 
