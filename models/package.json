@@ -7,4 +7,9 @@
     "dev": "tsc models.ts -d -w",
     "build": "tsc models.ts -d"
   },
-  "author": 
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
